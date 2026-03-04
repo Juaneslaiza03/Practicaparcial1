@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 public class main {
-   
+
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
-         Metodos m= new Metodos();
+        Scanner sc = new Scanner(System.in);
+        Metodos m = new Metodos();
 
         int opt = 0;
-        
+
         System.out.println("Bienvenido al Menu:");
         System.out.println("----------------------");
         System.out.println("INDIQUE A QUE PUNTO QUIERE INGRESAR");
@@ -23,39 +23,59 @@ public class main {
         System.out.println("10.punto #10");
         System.out.println("--------------------");
         System.out.println("indique una opcion: ");
-        opt=sc.nextInt();
-         
+        opt = sc.nextInt();
+
         switch (opt) {
             case 1:
-               // System.out.println("hola");
+                // System.out.println("hola");
                 m.LlamarMetodos();
                 break;
-                case 2:
-                
+            case 2:
+
                 break;
-                case 3:
-                
+            case 3:
+
                 break;
-                case 4:
-                
+            case 4:
+            
+
+                System.out.println("Ingrese tamaño de la matriz: ");
+                int n = sc.nextInt();
+
+                Puestos[][] matriz = m.iniciarMatriz(n);
+
+                m.llenarMatriz(matriz);
+                m.ordenarFilasPorPrecio(matriz);
+
+                System.out.println("Puestos en orden por precio en cada fila: ");
+
+                for (int i = 0; i < matriz.length; i++) {
+                    for (int j = 0; j < matriz[i].length; j++) {
+
+                        System.out.println(
+                                "Asiento " + matriz[i][j].getNumero() + " - Precio " + matriz[i][j].getPrecio());
+
+                    }
+
+                }
+
                 break;
-                case 5:
-                
+            case 5:
+
                 break;
-                case 6:
-                
+            case 6:
+
                 break;
-                case 7:
-                
+            case 7:
+
                 break;
-                case 8:
-                
+            case 8:
+
                 break;
-                case 9:
-                
+            case 9:
+
                 break;
 
-        
             default:
                 break;
         }
