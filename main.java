@@ -44,6 +44,16 @@ public class main {
 
                     break;
                 case 3:
+                    Libro[][] matriz3 = m.iniciarMatriz3(n);
+
+                    m.llenarMatriz(matriz3);
+
+                    Libro caro = m.libroMasCaro(matriz3);
+
+                    System.out.println("El libro mas caro de la libreria es: ");
+                    System.out.println("Nombre: " + caro.getTitulo());
+                    System.out.println("Autor: " + caro.getAutor());
+                    System.out.println("Su precio es: " + caro.getPrecio());
 
                     break;
                 case 4:

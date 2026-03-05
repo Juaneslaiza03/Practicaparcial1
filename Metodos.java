@@ -100,4 +100,50 @@ public class Metodos {
         }
         return sc.nextInt();
     }
+
+    public Libro[][] iniciarMatriz3(int n) {
+        return new Libro[n][n];
+
+    }
+
+    public void llenarMatriz(Libro[][] matriz) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Vamos a iniciar con el inventario de libros: ");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.println("Ingresa el titulo del libro: ");
+                String titulo = sc.next();
+                System.out.println("Ingrese el autor del libro: ");
+                String autor = sc.next();
+                System.out.println("Ingrese el prcio del libro:");
+                double precio = sc.nextDouble();
+
+                Libro libro = new Libro();
+                libro.setTitulo(titulo);
+                libro.setAutor(autor);
+                libro.setPrecio(precio);
+
+                matriz[i][j] = libro;
+
+            }
+        }
+    }
+
+    public Libro libroMasCaro(Libro[][] matriz) {
+
+        Libro masCaro = matriz[0][0];
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+
+                if (matriz[i][j].getPrecio() > masCaro.getPrecio()) {
+                    masCaro = matriz[i][j];
+
+                }
+            }
+        }
+        return masCaro;
+    }
 }
