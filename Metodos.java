@@ -1,38 +1,39 @@
 import java.util.Scanner;
 
 public class Metodos {
-    public void LlamarMetodos(){
+    public void LlamarMetodos() {
         System.out.println("hola mundo");
     }
-     public  Puestos[][] iniciarMatriz(int n) {
+
+    public Puestos[][] iniciarMatriz(int n) {
         return new Puestos[n][n];
     }
 
-    public  void llenarMatriz(Puestos[][] matriz){
-        
+    public void llenarMatriz(Puestos[][] matriz) {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Vamos a llenar la matriz: ");
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-              System.out.println("Ingrese el numero de asiento: ");  
-              int numero = sc.nextInt();
-              System.out.println("Ingrese el numero de la fila: ");
-              int fila = sc.nextInt();
-              System.out.println("Ingrese el precio: ");
-              double precio = sc.nextDouble();
+                System.out.println("Ingrese el numero de asiento: ");
+                int numero = sc.nextInt();
+                System.out.println("Ingrese el numero de la fila: ");
+                int fila = sc.nextInt();
+                System.out.println("Ingrese el precio: ");
+                double precio = sc.nextDouble();
 
-              Puestos o = new Puestos();
-              o.setNumero(numero); 
-              o.setFila(fila);
-              o.setPrecio(precio);
+                Puestos o = new Puestos();
+                o.setNumero(numero);
+                o.setFila(fila);
+                o.setPrecio(precio);
 
-              matriz[i][j] = o;
+                matriz[i][j] = o;
             }
         }
     }
-    public  void
-    ordenarFilasPorPrecio(Puestos[][] matriz){
+
+    public void ordenarFilasPorPrecio(Puestos[][] matriz) {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length - 1; j++) {
@@ -43,13 +44,60 @@ public class Metodos {
                         Puestos temp = matriz[i][k];
                         matriz[i][k] = matriz[i][k + 1];
                         matriz[i][k + 1] = temp;
-                    
-                        
+
                     }
-                    
+
                 }
-                
+
             }
         }
+    }
+
+    public Productop2[][] iniciarMatrizp2(int n) {
+        return new Productop2[n][n];
+    }
+
+    public void llenarMatriz(Productop2[][] matriz) {
+
+        Scanner sc = new Scanner(System.in);
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+
+                System.out.println("Ingrese el producto: ");
+                String nombre = sc.next();
+                System.out.println("Ingrese la cantidad de productos: ");
+                int cantidad = sc.nextInt();
+
+                Productop2 o = new Productop2();
+
+                o.setNombre(nombre);
+                o.setCantidad(cantidad);
+
+                matriz[i][j] = o;
+            }
+        }
+    }
+
+    public int sumarCantidad(Productop2[][] matriz) {
+
+        int total = 0;
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+
+                total = total + matriz[i][j].getCantidad();
+
+            }
+        }
+        return total;
+    }
+
+    public int validarNumero(Scanner sc) {
+        while (!sc.hasNextInt()) {
+            System.out.println("por favor digite un numero no ve que son opiociones..");
+            sc.nextLine();
+        }
+        return sc.nextInt();
     }
 }
